@@ -20,6 +20,20 @@ import javax.swing.JTextField;
 
 import com.tp.controleurs.Demarrage;
 
+/**
+ *<b>Fenêtre d'accueil permettant de démarrer l'application.</b>
+ *<p>
+ *Les valeurs à définir pour démarrer sont : 
+ *<ul>
+ *<li>le tempo</li>
+ *<li>le type de diffusion</>
+ *<li>le nombre d'afficheurs</li>
+ *</ul>
+ *Contient aussi un contrôleur permettant de démarrer l'application avec les paramètres fournis
+ *</p>
+ *@see Demarrage
+ *
+ */
 public class Accueil extends JFrame{
 
 	private JLabel labelTempo = new JLabel("Tempo : ");
@@ -36,11 +50,38 @@ public class Accueil extends JFrame{
 	private JPanel panelAlgo = new JPanel();
 	private JPanel panelNombreAfficheurs = new JPanel();
 	private JPanel panelCentral = new JPanel();
+	
+	/**
+	 * Contrôleur permettant de lancer l'application avec les paramètres fournis
+	 * @see Demarrage
+	 * @see Accueil#Accueil()
+	 */
 	Demarrage demarre;
+	
+	/**
+	 * Tempo d'incrémentation de la valeur du capteur, par défaut à 1 seconde
+	 * @see Accueil#Accueil()
+	 */
 	int tempo = 1000; // par défaut 1 sec
+	
+	/**
+	 * Type de diffusion à implémenter, par défaut à la diffusion atomique
+	 * @see Accueil#Accueil()
+	 */
 	int algoDiffusion = 0; // par défaut diffusion atomique
+	
+	/**
+	 * Le nombre d'afficheurs, par défaut à 4
+	 * @see Accueil#Accueil()
+	 */
 	int nombreAfficheurs = 4; //par défaut 4 afficheurs
 	
+	/**
+	 * Constructeur de la fenêtre
+	 * <p>Initialise la fenêtre, prend en compte les modifications de l'utilisateur et démarre
+	 * l'application avec les paramètres.</p>
+	 * @see Demarrage#Demarrage(int, int, int)
+	 */
 	public Accueil(){
 		super();
 		//demarre = d;

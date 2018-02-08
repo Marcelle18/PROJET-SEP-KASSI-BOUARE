@@ -8,6 +8,13 @@ import java.util.concurrent.Future;
 
 import com.tp.interfaces.IObservateur;
 
+/**
+ * Classe Diffusion séquentielle, héritant de la classe Diffusion et 
+ * défnissant l'algorithme de diffusion séquentielle, implémentant ActiveObject
+ * pour la diffusion de la valeur du capteur.
+ * 
+ *@see Diffusion
+ */
 public class DiffusionSequentielle extends Diffusion{
 
 	int valeurCourante; //valeur du capteur
@@ -43,6 +50,9 @@ public class DiffusionSequentielle extends Diffusion{
 			}
 	}
 
+	/**
+	 * @see com.tp.interfaces.IAlgoDiffusion#retournerValeur()
+	 */
 	@Override
 	public int retournerValeur() {
 		// TODO Auto-generated method stub

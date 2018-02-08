@@ -9,8 +9,18 @@ import java.util.concurrent.Future;
 
 import com.tp.interfaces.IObservateur;
 
+/**
+ * Classe Diffusion atomique, héritant de la classe Diffusion et 
+ * défnissant l'algorithme de diffusion atomique, implémentant ActiveObject
+ * pour la diffusion de la valeur du capteur.
+ * 
+ *@see Diffusion
+ */
 public class DiffusionAtomique extends Diffusion{
 
+	/**
+	 * @see com.tp.interfaces.IAlgoDiffusion#execute()
+	 */
 	@Override
 	public void execute() {
 		// TODO Auto-generated method stub
@@ -46,6 +56,9 @@ public class DiffusionAtomique extends Diffusion{
 		}
 	}
 
+	/**
+	 * @see com.tp.interfaces.IAlgoDiffusion#retournerValeur()
+	 */
 	@Override
 	public int retournerValeur() {
 		// TODO Auto-generated method stub

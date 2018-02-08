@@ -12,14 +12,53 @@ import com.tp.interfaces.IAlgoDiffusion;
 import com.tp.interfaces.ICapteur;
 import com.tp.interfaces.IObservateur;
 
+/**
+ * Classe permettant d'actualiser la valeur diffusée par le capteur observé en implémentant 
+ * le patron ActiveObject et de l'envoyer à l'afficheur.
+ * <p>Elle est composée de :
+ * <ul>
+ * <li>l'algorithme de diffusion utilisé</li>
+ * <li>son numéro qui équivaut au numéro de l'afficheur</li>
+ * <li>l'afficheur auquel elle envoie la valeur du capteur</li>
+ * </ul>
+ * </p>
+ * @see com.tp.interfaces.IObservateur
+ * @see com.tp.interfaces ICapteur
+ * @see Afficheur
+ *
+ */
 public class Canal implements IObservateur, ICapteur{
 
+	/**
+	 * Valeur diffusée par le capteur observé
+	 * @see Canal#getValue()
+	 */
 	int valeur;
+	
+	/**
+	 * Numéro du canal
+	 * @see Canal#Canal()
+	 */
 	int numeroCanal;
 	static int nombreCanal;
+	
+	/**
+	 * Algorithme de diffusion utilisé par le capteur
+	 * @see Canal#getValue()
+	 * @see Canal#actualiser(ICapteur)
+	 */
 	IAlgoDiffusion algoDiffusion;
+	
+	/**
+	 * Afficheur du canal
+	 * @see Canal#Canal()
+	 */
 	Afficheur afficheur;
 	
+	/**
+	 * Constructeur du canal. Définit le numéro du canal et instancie l'afficheur avec son numéro
+	 * @see Afficheur#Afficheur(int)
+	 */
 	public Canal(){
 		nombreCanal++;
 		numeroCanal = nombreCanal;
@@ -45,6 +84,10 @@ public class Canal implements IObservateur, ICapteur{
 		return null;
 	}
 
+	/**
+	 * Méthiode pour récupérer la valeur diffusée par le capteur
+	 * @return La valeur diffusée par le capteur
+	 */
 	@Override
 	public int getValue() {
 		// TODO Auto-generated method stub
@@ -65,6 +108,10 @@ public class Canal implements IObservateur, ICapteur{
 		return null;
 	}
 
+	/**
+	 * Méthode permettant d'actualiser la valeur diffusé par le capteur avec Activeobject.
+	 * @see Afficheur#actualiser(ICapteur)
+	 */
 	@Override
 	public void actualiser(ICapteur capteur) {
 		// TODO Auto-generated method stub

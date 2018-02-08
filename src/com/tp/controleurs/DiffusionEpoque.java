@@ -1,6 +1,7 @@
 package com.tp.controleurs;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
@@ -9,6 +10,13 @@ import java.util.concurrent.Future;
 
 import com.tp.interfaces.IObservateur;
 
+/**
+ * Classe Diffusion par époque, héritant de la classe Diffusion et 
+ * défnissant l'algorithme de diffusion par époque, implémentant ActiveObject
+ * pour la diffusion de la valeur du capteur.
+ * 
+ *@see Diffusion
+ */
 public class DiffusionEpoque extends Diffusion{
 
 	HashMap<Integer, Integer> tableValeurs = new HashMap<>();
@@ -39,6 +47,9 @@ public class DiffusionEpoque extends Diffusion{
 		}
 	}
 
+	/**
+	 * @see com.tp.interfaces.IAlgoDiffusion#retournerValeur()
+	 */
 	@Override
 	public int retournerValeur() {
 		// TODO Auto-generated method stub
