@@ -7,7 +7,7 @@ import com.tp.interfaces.ICapteur;
 import com.tp.interfaces.IObservateur;
 
 /**
- *<b>Classe Capteur, observée par un canal et implémentant un algorithme de diffusion pour diffuser
+ *<b>Classe Capteur, observée par un afficheur et implémentant un algorithme de diffusion pour diffuser
  *sa valeur.</b> 
  *<p>
  *Cette classe est composée de :

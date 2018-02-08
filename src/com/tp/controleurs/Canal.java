@@ -1,6 +1,7 @@
 package com.tp.controleurs;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
@@ -109,7 +110,7 @@ public class Canal implements IObservateur, ICapteur{
 	}
 
 	/**
-	 * Méthode permettant d'actualiser la valeur diffusé par le capteur avec Activeobject.
+	 * Méthode permettant d'actualiser la valeur diffusée par le capteur en interalles de temps aléatoires avec Activeobject.
 	 * @see Afficheur#actualiser(ICapteur)
 	 */
 	@Override
@@ -119,16 +120,18 @@ public class Canal implements IObservateur, ICapteur{
 		algoDiffusion = capteur.getCapteur().algoDiffusion;
 		System.out.println("Mise à jour du canal : "+numeroCanal);
 		
-		ScheduledExecutorService pilExec = Executors.newScheduledThreadPool(nombreCanal);
+		Random r = new Random();
+		int intervalle = 500 + r.nextInt(1000 - 500);
+		ScheduledExecutorService execution = Executors.newScheduledThreadPool(nombreCanal);
 
-		ScheduledFuture<Object> execFuture = pilExec.schedule(new Callable<Object>() {
+		ScheduledFuture<Object> execFuture = execution.schedule(new Callable<Object>() {
 		        public Object call() throws Exception {
 		        			        	
 		        	afficheur.actualiser(Canal.this);
 
 		            return null;
 		        }
-		    }, numeroCanal*500, TimeUnit.MILLISECONDS);
+		    }, intervalle, TimeUnit.MILLISECONDS);
 		
 		
 		try {
