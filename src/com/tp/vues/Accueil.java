@@ -182,7 +182,14 @@ public class Accueil extends JFrame{
 				try {
 	                tempo = Integer.parseInt(textTempo.getText());
 	                nombreAfficheurs = Integer.parseInt(textNombreAfficheurs.getText());
-	                demarre = new Demarrage(tempo, algoDiffusion, nombreAfficheurs);
+	                if(nombreAfficheurs < 4) {
+	                	JOptionPane boiteDialogue = new JOptionPane();
+		            	boiteDialogue.showMessageDialog(null, "Erreur ! 4 afficheurs au minimum",
+		            			"Erreur", JOptionPane.ERROR_MESSAGE);
+	                }
+	                else {
+	                	demarre = new Demarrage(tempo, algoDiffusion, nombreAfficheurs);
+	                }
 	            }
 	            catch (NumberFormatException f) {
 	            	JOptionPane boiteDialogue = new JOptionPane();
